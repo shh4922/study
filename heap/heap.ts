@@ -8,11 +8,21 @@
  * 최대힙 은 부모노드가 자식노드 보다 크거나 같음.
  */
 
-class MinHeap {
+class Heap {
     private heap: number[]
+    private isMaxHeap=false
 
+    /**
+     * 디폴트는 최소힙임. 최대힙 구할거면 스위칭 하셈
+     * @param data
+     */
     constructor(data:number[] = []) {
         this.heap = data
+    }
+
+    switchToMaxHeap() {
+        this.heap = this.heap.map(v=> -v)
+        this.isMaxHeap = true
     }
 
     /**
@@ -20,7 +30,12 @@ class MinHeap {
      * @param value
      */
     add(value:number) {
-        this.heap.push(value)
+        let v = value
+        if(this.isMaxHeap) {
+            v = -v
+        }
+
+        this.heap.push(v)
         this.bubbleUp()
     }
 
