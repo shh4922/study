@@ -61,7 +61,7 @@ class Heap {
     /**
      * 가장 마지막에 추가하고 위로 올리는 구조임
      */
-    bubbleUp() {
+    bubbleUp() {1
         let index = this.heap.length-1 // 가장 마지막 에 추가된 값의 위치
         let parentIndex = Math.floor((index-1)/2) // 현재 추가된 애의 부모 인덱스 위치
 
