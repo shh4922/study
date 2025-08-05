@@ -18,16 +18,28 @@ function bt(board, value, m, n) {
 
     // 세로확인
     for(let i=0; i<9; i++) {
-        if(board[i].includes(value)){
+        if(board[i][n] === value){
             bt(board,value+1,m,n)
+            return;
         }
     }
 
     // 3*3 확인
-    const M = Math.floor(m/3)
-    const N = Math.floor(N/3)
-    for(let i=M*3; i<(M+1)*3; i++){
-        if(board[M])
+    const M = Math.floor(m / 3) * 3
+    const N = Math.floor(n / 3) * 3
+    const subgrid = board.slice(M, M + 3).map(row => row.slice(N, N + 3))
+    // console.log(subgrid)
+    for(let i=0; i<3; i++) {
+        if(subgrid[i].includes(value)) {
+            bt(board,value+1,m,n)
+            return;
+        }
+        for(let j=0; j<3; j++) {
+            if(subgrid[i][j] === value) {
+                bt(board,value+1,m,n)
+                return;
+            }
+        }
     }
 
     board[m][n] = value
