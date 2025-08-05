@@ -1,5 +1,5 @@
 /**
- * DFS : 넓이 우선 탐색
+ * BFS : 넓이 우선 탐색
  * 그냥 갈림길 나올때마다 걔들다 queue에 넣고
  * queue 빌동안 곗속 queue에서 꺼내서 꺼낸애의 하위에 또 갈곳있는지 확인하면서 탐색.
  * 그러다보니 자연스래 원하는 조건에 도달하는 최소한의 경로를 찾을수있음.
@@ -18,7 +18,8 @@ const graph = {
     J: ["I"]
 };
 
-
+const map = new Map()
+map.size
 const dfs = (gragh, startNode) => {
     const visited = []
     let queue = []
