@@ -9,7 +9,7 @@ function solution(N) {
 }
 function bt(sum, selectNumList, start, result,N) {
     if(sum === 10) {
-        result.push(selectNumList)
+        result.push([...selectNumList])
         return
     }
 
