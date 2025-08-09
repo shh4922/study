@@ -1,3 +1,4 @@
+
 /**
  * 성공시 ["next", result]
  * 실패시 [undefined, error] 를 리턴하는 함수를 만들어라
@@ -8,12 +9,23 @@
  * @returns {Promise<(string|*)[]|*[]>}
  */
 
-// 내가 적은 풀이는 이랬는데 왜 틀린건지 모르겠다...
-async function solution(promise) {
-    try {
-        const result = await promise;
+
+/**
+ * 실패 원인
+ * 진짜 왜 틀렸는지 잘 모르겠음
+ * 일단 solution에 async가 안붙어있었음
+ *
+ * 그래서 then 써서 했음 근데 틀렸음
+ * 아직까지 이유를 모르겠음
+ */
+
+
+
+function solution(promise) {
+    promise.then((res)=>{
         return ["next", result];
-    } catch (error) {
+    }).catch((e)=> {
+        const error = new Error(e)
         return [undefined, error];
-    }
+    })
 }

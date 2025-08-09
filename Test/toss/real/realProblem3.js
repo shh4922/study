@@ -9,6 +9,8 @@
  * 난 일단 하나라도 실패면 다른 email이 성공이라도 실패라고 생각해서 set사용했음
  *
  * 근데 틀림 ㅋㅋㅋㅋ 시발..
+ * 아니 왜???? 문제를 제대로 안읽었나?
+ * 시간에 급급해서 잘 안읽긴했음 ㅋㅋ
  *
  *
  * @type {[{name: string, type: string},{name: string, type: string},{name: string, type: string}]}
