@@ -3,37 +3,69 @@
  * 깊이우선 탑색 순회
  */
 
-const graph = [['A','B'], ['B','C'],['C','D'],['D','E']]
+// const graph = [['A','B'], ['B','C'],['C','D'],['D','E']]
+const graph = [['A','B'], ['A','C'],['B','D'],['B','E'],['C','F'],['E','F']]
 const start = 'A'
 
-function solution(graph, start) {
-    const result = []
+function solution() {
     const visited = new Set()
+    const result = []
 
-    const adjList = {}
-    graph.forEach(([u,v])=>{
-        if(!adjList[u]) {
-            adjList[u]=[]
+    const tree = {}
+    graph.forEach(([a,b]) => {
+        if(!tree[a]) {
+            tree[a]=[]
         }
-        adjList[u].push(v)
+        tree[a].push(b)
     })
 
-
-    function dfs(node,visited,result) {
-
+    function dfs(node) {
         visited.add(node)
         result.push(node)
-        if(adjList[node] !== undefined) {
-            adjList[node].forEach((neighbor)=>{
-                if(!visited.has(neighbor)) {
-                    dfs(neighbor, visited, result)
-                }
-            })
+
+        if(tree[node]) {
+           tree[node].forEach((value)=>{
+               if(!visited[value]) {
+                   dfs(value)
+               }
+           })
         }
     }
-
-
-    dfs(start, visited, result)
+    dfs(start)
     return result
 }
-console.log(solution(graph,start))
+console.log(solution())
+
+
+
+// function solution(graph, start) {
+//     const result = []
+//     const visited = new Set()
+//
+//     const adjList = {}
+//     graph.forEach(([u,v])=>{
+//         if(!adjList[u]) {
+//             adjList[u]=[]
+//         }
+//         adjList[u].push(v)
+//     })
+//
+//
+//     function dfs(node,visited,result) {
+//
+//         visited.add(node)
+//         result.push(node)
+//         if(adjList[node] !== undefined) {
+//             adjList[node].forEach((neighbor)=>{
+//                 if(!visited.has(neighbor)) {
+//                     dfs(neighbor, visited, result)
+//                 }
+//             })
+//         }
+//     }
+//
+//
+//     dfs(start, visited, result)
+//     return result
+// }
+// console.log(solution(graph,start))
